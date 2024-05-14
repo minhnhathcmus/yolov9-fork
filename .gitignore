@@ -4,3 +4,5 @@ __pycache__/
 /weights
 /runs
 cam_urls.txt
+data/images
+test_aug_hsv.py
