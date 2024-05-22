@@ -52,7 +52,7 @@ def run(
         vid_stride=1,  # video frame-rate stride
 ):
     source = str(source)
-    save_img = not nosave and not source.endswith('.txt')  # save inference images
+    save_img = not nosave # and not source.endswith('.txt')  # save inference images
     is_file = Path(source).suffix[1:] in (IMG_FORMATS + VID_FORMATS)
     is_url = source.lower().startswith(('rtsp://', 'rtmp://', 'http://', 'https://'))
     webcam = source.isnumeric() or source.endswith('.txt') or (is_url and not is_file)
@@ -120,7 +120,8 @@ def run(
             p = Path(p)  # to Path
             # print(f'\n{p.name} ({frame})')
             save_path = str(save_dir / p.name)  # im.jpg
-            low_conf_save_path = f'{low_conf_save_dir}{"/" if platform.system() == "Linux" else "\\"}{frame}.jpg'  # path to save abnormal detections
+            # low_conf_save_path = f'{low_conf_save_dir}{"/" if platform.system() == "Linux" else "\\"}{i}_{frame}.jpg'
+            low_conf_save_path = f'{low_conf_save_dir}/{i}_{frame}.jpg'  # path to save abnormal detections
             # print('low_conf_save_path:', low_conf_save_path)
             txt_path = str(save_dir / 'labels' / p.stem) + ('' if dataset.mode == 'image' else f'_{frame}')  # im.txt
             s += '%gx%g ' % im.shape[2:]  # print string
