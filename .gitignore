@@ -6,3 +6,4 @@ __pycache__/
 cam_urls.txt
 data/images
 test_aug_hsv.py
+/figure
