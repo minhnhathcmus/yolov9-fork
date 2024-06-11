@@ -1,0 +1,8 @@
+path: ./dataset
+train: train/train.txt
+val: test/test.txt
+test: test/test.txt
+
+nc: 2
+# Classes
+names: ['fire', 'smoke']
