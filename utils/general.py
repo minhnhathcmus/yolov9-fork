@@ -668,6 +668,29 @@ def make_divisible(x, divisor):
     return math.ceil(x / divisor) * divisor
 
 
+def resolve_duplicated_path(strings):
+    """
+    Checks for and resolves duplicates within an array of file paths.
+
+    Parameters:
+        strings (list): A list containing the file paths to check for duplicates.
+
+    Returns:
+        None. The function directly modifies the input list of file paths.
+    """
+    seen = {}
+    for i, string in enumerate(strings):
+        path = Path(string)
+        name = path.name
+        if path.name in seen:
+            count = seen[name]
+            new_string = f"{string}_{count}"
+            strings[i] = new_string
+            seen[name] += 1
+        else:
+            seen[name] = 1
+
+
 def clean_str(s):
     # Cleans a string by replacing special characters with underscore _
     return re.sub(pattern="[|@#!¡·$€%&()=?¿^*;:,¨´><+]", repl="_", string=s)
